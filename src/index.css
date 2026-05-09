@@ -160,7 +160,7 @@ button:hover {
 
 .crawl {
   position: absolute;
-  top: 100%;
+  top: 30%;
   left: 0;
   width: 100%;
   color: rgba(255,255,255,0.72);
@@ -173,7 +173,7 @@ button:hover {
 
 @keyframes crawlUp {
   from {
-    top: 100%;
+    top: 30%;
     opacity: 0;
   }
 
