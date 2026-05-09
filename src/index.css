@@ -136,7 +136,7 @@ li:nth-child(4) { animation-delay: 0.8s; }
 .crawl-wrapper {
   position: relative;
   height: 30vh;
-  width: min(860px, 90vw);
+  width: min(1100px, 92vw);
   overflow: hidden;
   pointer-events: none;
   perspective: 420px;
@@ -151,8 +151,8 @@ li:nth-child(4) { animation-delay: 0.8s; }
   transform-origin: center bottom;
 
   color: rgba(255,255,255,0.78);
-  font-size: 19px;
-  line-height: 1.55;
+  font-size: 38px;
+  line-height: 1.7;
   text-align: center;
   white-space: pre-line;
 
