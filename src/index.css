@@ -217,7 +217,7 @@ button:hover {
   line-height: 1.8;
   text-align: center;
   white-space: pre-line;
-  animation: crawlUp 22s linear forwards;
+  animation: crawlUp 4s linear forwards;
 }
 
 @keyframes crawlUp {
