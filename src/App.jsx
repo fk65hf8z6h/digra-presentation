@@ -2,10 +2,24 @@ import { useEffect, useState } from "react";
 
 export default function App() {
   const slides = [
-    {
-      title: "Ontological invisibility",
-      subtitle: "as a result of digital subjectification",
-      accent: "Who are you, IT-guy?"
+    
+      {
+  title: "Ontological invisibility",
+  subtitle: "as a result of digital subjectification",
+  accent: "Who are you, IT-guy?",
+  crawl: `
+presentation for the Digital Subjectivities Conference
+
+Freie Universität Berlin
+May 2026
+
+Polina Erina
+PhD candidate
+
+European Humanities University
+Vilnius, Lithuania
+`
+
     },
     {
       title: "Problem field",
