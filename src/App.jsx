@@ -2,12 +2,11 @@ import { useEffect, useState } from "react";
 
 export default function App() {
   const slides = [
-    
-      {
-  title: "Ontological invisibility",
-  subtitle: "as a result of digital subjectification",
-  accent: "Who are you, IT-guy?",
-  crawl: `
+    {
+      title: "Ontological invisibility",
+      subtitle: "as a result of digital subjectification",
+      accent: "Who are you, IT-guy?",
+      crawl: `
 presentation for the Digital Subjectivities Conference
 
 Freie Universität Berlin
@@ -19,12 +18,13 @@ PhD candidate
 European Humanities University
 Vilnius, Lithuania
 `
-
     },
+
     {
       title: "Problem field",
       text: "Women are operationally visible in corporate IT, but ontologically unrecognizable as digital subjects."
     },
+
     {
       title: "Theorisation",
       bullets: [
@@ -38,24 +38,45 @@ Vilnius, Lithuania
 
   const [current, setCurrent] = useState(0);
 
-  const next = () => setCurrent((s) => Math.min(s + 1, slides.length - 1));
-  const prev = () => setCurrent((s) => Math.max(s - 1, 0));
+  const next = () => {
+    setCurrent((s) => Math.min(s + 1, slides.length - 1));
+  };
+
+  const prev = () => {
+    setCurrent((s) => Math.max(s - 1, 0));
+  };
 
   useEffect(() => {
     const handleKey = (e) => {
-      if (e.key === "ArrowRight" || e.key === " " || e.key === "PageDown") next();
-      if (e.key === "ArrowLeft" || e.key === "PageUp") prev();
+      if (
+        e.key === "ArrowRight" ||
+        e.key === " " ||
+        e.key === "PageDown"
+      ) {
+        next();
+      }
+
+      if (
+        e.key === "ArrowLeft" ||
+        e.key === "PageUp"
+      ) {
+        prev();
+      }
     };
 
     window.addEventListener("keydown", handleKey);
-    return () => window.removeEventListener("keydown", handleKey);
+
+    return () => {
+      window.removeEventListener("keydown", handleKey);
+    };
   }, []);
 
   const slide = slides[current];
 
   return (
     <div className="presentation">
-      <section className="slide" key={current}>
+      <section className="slide">
+
         <div className="glow glow1"></div>
         <div className="glow glow2"></div>
 
@@ -67,19 +88,19 @@ Vilnius, Lithuania
         <div className="content">
           <h1>{slide.title}</h1>
 
-          {slide.subtitle && <h2>{slide.subtitle}</h2>}
+          {slide.subtitle && (
+            <h2>{slide.subtitle}</h2>
+          )}
 
-          {slide.accent && <div className="accent">{slide.accent}</div>}
+          {slide.accent && (
+            <div className="accent">
+              {slide.accent}
+            </div>
+          )}
 
-          {slide.crawl && (
-  <div className="crawl-wrapper">
-    <div className="crawl">
-      {slide.crawl}
-    </div>
-  </div>
-)}
-
-          {slide.text && <p>{slide.text}</p>}
+          {slide.text && (
+            <p>{slide.text}</p>
+          )}
 
           {slide.bullets && (
             <ul>
@@ -90,11 +111,24 @@ Vilnius, Lithuania
           )}
         </div>
 
+        {slide.crawl && (
+          <div className="crawl-wrapper">
+            <div className="crawl">
+              {slide.crawl}
+            </div>
+          </div>
+        )}
+
         <div className="footer">
           <button onClick={prev}>←</button>
-          <span>{current + 1} / {slides.length}</span>
+
+          <span>
+            {current + 1} / {slides.length}
+          </span>
+
           <button onClick={next}>→</button>
         </div>
+
       </section>
     </div>
   );
