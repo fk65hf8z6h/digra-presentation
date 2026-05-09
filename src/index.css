@@ -26,18 +26,19 @@ body {
 .main-stage {
   position: relative;
   z-index: 5;
-  height: 78vh;
+  height: 70vh;
   padding: 60px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 90px;
 }
 
 .subtitle-stage {
   position: relative;
   z-index: 6;
-  height: 22vh;
+  height: 30vh;
   padding: 0 60px 36px;
   box-sizing: border-box;
   display: grid;
