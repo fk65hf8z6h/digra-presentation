@@ -146,6 +146,46 @@ button:hover {
   box-shadow: 0 0 20px rgba(0,255,255,0.25);
 }
 
+.crawl-wrapper {
+  position: absolute;
+  bottom: -10%;
+  left: 50%;
+  width: 70%;
+  height: 55%;
+  transform: translateX(-50%) perspective(500px) rotateX(24deg);
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.crawl {
+  color: rgba(255,255,255,0.72);
+  font-size: 26px;
+  line-height: 1.8;
+  text-align: center;
+  white-space: pre-line;
+  animation: crawlUp 18s linear 1s forwards;
+}
+
+@keyframes crawlUp {
+  from {
+    transform: translateY(70%);
+    opacity: 0;
+  }
+
+  8% {
+    opacity: 1;
+  }
+
+  85% {
+    opacity: 1;
+  }
+
+  to {
+    transform: translateY(-35%);
+    opacity: 0;
+  }
+}
+
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -198,40 +238,5 @@ button:hover {
   }
   to {
     transform: translate(50px, -40px) scale(1.12);
-  }
-}
-.crawl-wrapper {
-  position: absolute;
-  bottom: -40%;
-  left: 50%;
-  width: 80%;
-  height: 60%;
-  transform: translateX(-50%) perspective(400px) rotateX(25deg);
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.crawl {
-  color: rgba(255,255,255,0.72);
-  font-size: 28px;
-  line-height: 1.8;
-  text-align: center;
-  white-space: pre-line;
-  animation: crawlUp 6s linear 1s forwards;
-}
-
-@keyframes crawlUp {
-  from {
-    transform: translateY(100%);
-    opacity: 0;
-  }
-
-  10% {
-    opacity: 1;
-  }
-
-  to {
-    transform: translateY(-220%);
-    opacity: 0;
   }
 }
