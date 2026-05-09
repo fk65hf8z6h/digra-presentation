@@ -2,5 +2,147 @@ body {
   margin: 0;
   background: black;
   color: white;
-  font-family: Inter, sans-serif;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+.presentation {
+  width: 100%;
+}
+
+.slide {
+  position: relative;
+  height: 100vh;
+  padding: 60px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  background:
+    radial-gradient(circle at top right, rgba(0,255,255,0.15), transparent 30%),
+    radial-gradient(circle at bottom left, rgba(255,0,255,0.12), transparent 30%),
+    #000;
+}
+
+.topline {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #888;
+}
+
+.content {
+  max-width: 900px;
+}
+
+h1 {
+  font-size: 72px;
+  line-height: 0.95;
+  margin: 0 0 20px;
+  animation: fadeUp 1s ease forwards;
+}
+
+h2 {
+  font-weight: 300;
+  color: #bbb;
+  margin-bottom: 30px;
+  animation: fadeUp 1.5s ease forwards;
+}
+
+.accent {
+  display: inline-block;
+  padding: 14px 28px;
+  border: 1px solid cyan;
+  border-radius: 999px;
+  color: cyan;
+  margin-top: 20px;
+  box-shadow: 0 0 30px rgba(0,255,255,0.3);
+  animation: glowIn 2s ease forwards;
+}
+
+p {
+  font-size: 32px;
+  line-height: 1.5;
+  color: #ddd;
+  max-width: 800px;
+  animation: fadeUp 1.5s ease forwards;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: #ddd;
+  opacity: 0;
+  animation: bulletReveal 1s ease forwards;
+}
+
+li:nth-child(1) { animation-delay: 0.2s; }
+li:nth-child(2) { animation-delay: 0.4s; }
+li:nth-child(3) { animation-delay: 0.6s; }
+li:nth-child(4) { animation-delay: 0.8s; }
+
+.glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+}
+
+.glow1 {
+  width: 400px;
+  height: 400px;
+  background: rgba(0,255,255,0.15);
+  top: -100px;
+  right: -100px;
+}
+
+.glow2 {
+  width: 400px;
+  height: 400px;
+  background: rgba(255,0,255,0.1);
+  bottom: -120px;
+  left: -120px;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes glowIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bulletReveal {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
