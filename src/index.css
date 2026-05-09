@@ -1,282 +1,122 @@
-body {
-  margin: 0;
-  background: black;
-  color: white;
-  font-family: Arial, sans-serif;
-  overflow: hidden;
-}
+import { useEffect, useState } from "react";
 
-.presentation {
-  width: 100vw;
-  height: 100vh;
-  background: black;
-}
+export default function App() {
+  const slides = [
+    {
+      title: "Ontological invisibility",
+      subtitle: "as a result of digital subjectification",
+      accent: "Who are you, IT-guy?",
+      crawl: `
+presentation for the Digital Subjectivities Conference
 
-.slide {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  padding: 60px;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  overflow: hidden;
-  background:
-    radial-gradient(circle at top right, rgba(0,255,255,0.18), transparent 32%),
-    radial-gradient(circle at bottom left, rgba(255,0,255,0.14), transparent 32%),
-    #000;
-}
+Freie Universität Berlin
+May 2026
 
-.topline {
-  position: relative;
-  z-index: 5;
-  display: flex;
-  justify-content: space-between;
-  font-size: 14px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #888;
-}
+Polina Erina
+PhD candidate
 
-.content {
-  position: relative;
-  z-index: 5;
-  max-width: 900px;
-}
+European Humanities University
+Vilnius, Lithuania
+`
+    },
 
-h1 {
-  font-size: 72px;
-  line-height: 0.95;
-  margin: 0 0 20px;
-  animation: fadeUp 1s ease forwards;
-}
+    {
+      title: "Problem field",
+      text: "Women are operationally visible in corporate IT, but ontologically unrecognizable as digital subjects."
+    },
 
-h2 {
-  font-weight: 300;
-  color: #bbb;
-  margin-bottom: 30px;
-  animation: fadeUp 1.4s ease forwards;
-}
+    {
+      title: "Theorisation",
+      bullets: [
+        "Foucault — subjectification through power",
+        "Butler — recognition through norms",
+        "Deleuze — repetition and process",
+        "Barad — agential cuts and ontological exclusion"
+      ]
+    }
+  ];
 
-.accent {
-  display: inline-block;
-  padding: 14px 28px;
-  border: 1px solid cyan;
-  border-radius: 999px;
-  color: cyan;
-  margin-top: 20px;
-  box-shadow: 0 0 30px rgba(0,255,255,0.3);
-  animation: glowIn 1.8s ease forwards;
-}
+  const [current, setCurrent] = useState(0);
 
-p {
-  font-size: 32px;
-  line-height: 1.5;
-  color: #ddd;
-  max-width: 800px;
-  animation: fadeUp 1.4s ease forwards;
-}
+  const next = () => setCurrent((s) => Math.min(s + 1, slides.length - 1));
+  const prev = () => setCurrent((s) => Math.max(s - 1, 0));
 
-ul {
-  list-style: none;
-  padding: 0;
-}
+  useEffect(() => {
+    const handleKey = (e) => {
+      if (
+        e.key === "ArrowRight" ||
+        e.key === " " ||
+        e.key === "PageDown"
+      ) {
+        next();
+      }
 
-li {
-  font-size: 30px;
-  margin-bottom: 20px;
-  color: #ddd;
-  opacity: 0;
-  animation: bulletReveal 1s ease forwards;
-}
+      if (
+        e.key === "ArrowLeft" ||
+        e.key === "PageUp"
+      ) {
+        prev();
+      }
+    };
 
-li:nth-child(1) { animation-delay: 0.2s; }
-li:nth-child(2) { animation-delay: 0.4s; }
-li:nth-child(3) { animation-delay: 0.6s; }
-li:nth-child(4) { animation-delay: 0.8s; }
+    window.addEventListener("keydown", handleKey);
 
-.glow {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(100px);
-  pointer-events: none;
-}
+    return () => window.removeEventListener("keydown", handleKey);
+  }, []);
 
-.glow1 {
-  width: 420px;
-  height: 420px;
-  background: rgba(0,255,255,0.16);
-  top: -100px;
-  right: -100px;
-  animation: driftOne 8s ease-in-out infinite alternate;
-}
+  const slide = slides[current];
 
-.glow2 {
-  width: 420px;
-  height: 420px;
-  background: rgba(255,0,255,0.12);
-  bottom: -120px;
-  left: -120px;
-  animation: driftTwo 9s ease-in-out infinite alternate;
-}
+  return (
+    <div className="presentation">
+      <section className="slide" key={current}>
+        <div className="glow glow1"></div>
+        <div className="glow glow2"></div>
 
-.footer {
-  position: relative;
-  z-index: 6;
-  display: flex;
-  gap: 24px;
-  align-items: center;
-  justify-content: flex-end;
-  color: #888;
-}
+        <div className="topline">
+          <span>DiGRA 2026</span>
+          <span>Polina Erina</span>
+        </div>
 
-button {
-  background: transparent;
-  border: 1px solid rgba(0,255,255,0.5);
-  color: cyan;
-  border-radius: 999px;
-  padding: 8px 18px;
-  font-size: 20px;
-  cursor: pointer;
-}
+        <div className="content">
+          <h1>{slide.title}</h1>
 
-button:hover {
-  background: rgba(0,255,255,0.12);
-  box-shadow: 0 0 20px rgba(0,255,255,0.25);
-}
+          {slide.subtitle && <h2>{slide.subtitle}</h2>}
 
-/* MINI STAR-WARS SUBTITLE LANE */
-.crawl-wrapper {
-  position: absolute;
-  left: 60px;
-  right: 60px;
-  bottom: 86px;
-  height: 88px;
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 4;
+          {slide.accent && (
+            <div className="accent">
+              {slide.accent}
+            </div>
+          )}
 
-  border-top: 1px solid rgba(0,255,255,0.18);
-  border-bottom: 1px solid rgba(0,255,255,0.12);
-  background: linear-gradient(
-    to bottom,
-    rgba(0,0,0,0),
-    rgba(0,0,0,0.18),
-    rgba(0,0,0,0)
+          {slide.text && <p>{slide.text}</p>}
+
+          {slide.bullets && (
+            <ul>
+              {slide.bullets.map((b, i) => (
+                <li key={i}>{b}</li>
+              ))}
+            </ul>
+          )}
+        </div>
+
+        {slide.crawl && (
+          <div className="crawl-wrapper">
+            <div className="crawl">
+              {slide.crawl}
+            </div>
+          </div>
+        )}
+
+        <div className="footer">
+          <button onClick={prev}>←</button>
+
+          <span>
+            {current + 1} / {slides.length}
+          </span>
+
+          <button onClick={next}>→</button>
+        </div>
+      </section>
+    </div>
   );
-}
-
-.crawl-wrapper::before,
-.crawl-wrapper::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 28px;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.crawl-wrapper::before {
-  top: 0;
-  background: linear-gradient(to bottom, #000, rgba(0,0,0,0));
-}
-
-.crawl-wrapper::after {
-  bottom: 0;
-  background: linear-gradient(to top, #000, rgba(0,0,0,0));
-}
-
-.crawl {
-  position: absolute;
-  left: 18%;
-  width: 64%;
-  top: 100%;
-  color: rgba(255,255,255,0.68);
-  font-size: 18px;
-  line-height: 1.55;
-  text-align: center;
-  white-space: pre-line;
-  opacity: 0;
-
-  transform-origin: center bottom;
-  animation: miniCrawl 11s linear 0.4s forwards;
-}
-
-@keyframes miniCrawl {
-  from {
-    top: 96%;
-    opacity: 0;
-    transform: perspective(360px) rotateX(26deg) scale(1.02);
-  }
-
-  8% {
-    opacity: 1;
-  }
-
-  78% {
-    opacity: 1;
-  }
-
-  to {
-    top: -220%;
-    opacity: 0;
-    transform: perspective(360px) rotateX(26deg) scale(0.72);
-  }
-}
-
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-    filter: blur(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
-  }
-}
-
-@keyframes glowIn {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes bulletReveal {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-    filter: blur(6px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-    filter: blur(0);
-  }
-}
-
-@keyframes driftOne {
-  from {
-    transform: translate(0, 0) scale(1);
-  }
-  to {
-    transform: translate(-40px, 60px) scale(1.15);
-  }
-}
-
-@keyframes driftTwo {
-  from {
-    transform: translate(0, 0) scale(1);
-  }
-  to {
-    transform: translate(50px, -40px) scale(1.12);
-  }
 }
