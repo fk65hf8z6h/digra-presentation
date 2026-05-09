@@ -148,11 +148,11 @@ button:hover {
 
 .crawl-wrapper {
   position: absolute;
-  left: 57%;
-  bottom: 2%;
-  width: 46%;
-  height: 20%;
-  transform: translateX(-50%) perspective(420px) rotateX(18deg);
+  left: 310px;
+  right: 260px;
+  bottom: 11%;
+  height: 16%;
+  transform: perspective(420px) rotateX(18deg);
   overflow: hidden;
   pointer-events: none;
   z-index: 3;
@@ -160,22 +160,21 @@ button:hover {
 
 .crawl {
   position: absolute;
-  top: 95%;
+  top: 92%;
   left: 0;
   width: 100%;
   color: rgba(255,255,255,0.62);
   font-size: 20px;
-  line-height: 1.65;
+  line-height: 1.55;
   text-align: center;
   white-space: pre-line;
   opacity: 0;
   animation: crawlUp 9s linear 0.3s forwards;
 }
 
-
 @keyframes crawlUp {
   from {
-    top: 95%;
+    top: 92%;
     opacity: 0;
   }
 
