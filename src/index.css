@@ -26,19 +26,19 @@ body {
 .main-stage {
   position: relative;
   z-index: 5;
-  height: 70vh;
+  height: 58vh;
   padding: 60px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: 90px;
+  gap: 70px;
 }
 
 .subtitle-stage {
   position: relative;
   z-index: 6;
-  height: 30vh;
+  height: 42vh;
   padding: 0 60px 36px;
   box-sizing: border-box;
   display: grid;
@@ -48,8 +48,8 @@ body {
   border-top: 1px solid rgba(0,255,255,0.16);
   background: linear-gradient(
     to bottom,
-    rgba(0,0,0,0.18),
-    rgba(0,0,0,0.72)
+    rgba(0,0,0,0.02),
+    rgba(0,0,0,0.78)
   );
 }
 
@@ -67,7 +67,7 @@ body {
 }
 
 h1 {
-  font-size: 72px;
+  font-size: 64px;
   line-height: 0.95;
   margin: 0 0 20px;
   animation: fadeUp 1s ease forwards;
