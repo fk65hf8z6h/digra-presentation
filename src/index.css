@@ -1,122 +1,338 @@
-import { useEffect, useState } from "react";
+body {
+  margin: 0;
+  background: black;
+  color: white;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
 
-export default function App() {
-  const slides = [
-    {
-      title: "Ontological invisibility",
-      subtitle: "as a result of digital subjectification",
-      accent: "Who are you, IT-guy?",
-      crawl: `
-presentation for the Digital Subjectivities Conference
+.presentation {
+  width: 100vw;
+  height: 100vh;
+  background: black;
+}
 
-Freie Universität Berlin
-May 2026
+.slide {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  padding: 60px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
 
-Polina Erina
-PhD candidate
+  background:
+    radial-gradient(circle at top right, rgba(0,255,255,0.18), transparent 32%),
+    radial-gradient(circle at bottom left, rgba(255,0,255,0.14), transparent 32%),
+    #000;
+}
 
-European Humanities University
-Vilnius, Lithuania
-`
-    },
+.topline {
+  position: relative;
+  z-index: 5;
 
-    {
-      title: "Problem field",
-      text: "Women are operationally visible in corporate IT, but ontologically unrecognizable as digital subjects."
-    },
+  display: flex;
+  justify-content: space-between;
 
-    {
-      title: "Theorisation",
-      bullets: [
-        "Foucault — subjectification through power",
-        "Butler — recognition through norms",
-        "Deleuze — repetition and process",
-        "Barad — agential cuts and ontological exclusion"
-      ]
-    }
-  ];
+  font-size: 14px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
 
-  const [current, setCurrent] = useState(0);
+  color: #888;
+}
 
-  const next = () => setCurrent((s) => Math.min(s + 1, slides.length - 1));
-  const prev = () => setCurrent((s) => Math.max(s - 1, 0));
+.content {
+  position: relative;
+  z-index: 5;
 
-  useEffect(() => {
-    const handleKey = (e) => {
-      if (
-        e.key === "ArrowRight" ||
-        e.key === " " ||
-        e.key === "PageDown"
-      ) {
-        next();
-      }
+  max-width: 900px;
+}
 
-      if (
-        e.key === "ArrowLeft" ||
-        e.key === "PageUp"
-      ) {
-        prev();
-      }
-    };
+h1 {
+  font-size: 72px;
+  line-height: 0.95;
 
-    window.addEventListener("keydown", handleKey);
+  margin: 0 0 20px;
 
-    return () => window.removeEventListener("keydown", handleKey);
-  }, []);
+  animation: fadeUp 1s ease forwards;
+}
 
-  const slide = slides[current];
+h2 {
+  font-weight: 300;
+  color: #bbb;
 
-  return (
-    <div className="presentation">
-      <section className="slide" key={current}>
-        <div className="glow glow1"></div>
-        <div className="glow glow2"></div>
+  margin-bottom: 30px;
 
-        <div className="topline">
-          <span>DiGRA 2026</span>
-          <span>Polina Erina</span>
-        </div>
+  animation: fadeUp 1.4s ease forwards;
+}
 
-        <div className="content">
-          <h1>{slide.title}</h1>
+.accent {
+  display: inline-block;
 
-          {slide.subtitle && <h2>{slide.subtitle}</h2>}
+  padding: 14px 28px;
 
-          {slide.accent && (
-            <div className="accent">
-              {slide.accent}
-            </div>
-          )}
+  border: 1px solid cyan;
+  border-radius: 999px;
 
-          {slide.text && <p>{slide.text}</p>}
+  color: cyan;
 
-          {slide.bullets && (
-            <ul>
-              {slide.bullets.map((b, i) => (
-                <li key={i}>{b}</li>
-              ))}
-            </ul>
-          )}
-        </div>
+  margin-top: 20px;
 
-        {slide.crawl && (
-          <div className="crawl-wrapper">
-            <div className="crawl">
-              {slide.crawl}
-            </div>
-          </div>
-        )}
+  box-shadow: 0 0 30px rgba(0,255,255,0.3);
 
-        <div className="footer">
-          <button onClick={prev}>←</button>
+  animation: glowIn 1.8s ease forwards;
+}
 
-          <span>
-            {current + 1} / {slides.length}
-          </span>
+p {
+  font-size: 32px;
+  line-height: 1.5;
 
-          <button onClick={next}>→</button>
-        </div>
-      </section>
-    </div>
-  );
+  color: #ddd;
+
+  max-width: 800px;
+
+  animation: fadeUp 1.4s ease forwards;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  font-size: 30px;
+
+  margin-bottom: 20px;
+
+  color: #ddd;
+
+  opacity: 0;
+
+  animation: bulletReveal 1s ease forwards;
+}
+
+li:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+li:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+li:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+li:nth-child(4) {
+  animation-delay: 0.8s;
+}
+
+.glow {
+  position: absolute;
+
+  border-radius: 50%;
+
+  filter: blur(100px);
+
+  pointer-events: none;
+}
+
+.glow1 {
+  width: 420px;
+  height: 420px;
+
+  background: rgba(0,255,255,0.16);
+
+  top: -100px;
+  right: -100px;
+
+  animation: driftOne 8s ease-in-out infinite alternate;
+}
+
+.glow2 {
+  width: 420px;
+  height: 420px;
+
+  background: rgba(255,0,255,0.12);
+
+  bottom: -120px;
+  left: -120px;
+
+  animation: driftTwo 9s ease-in-out infinite alternate;
+}
+
+.footer {
+  position: relative;
+  z-index: 6;
+
+  display: flex;
+  gap: 24px;
+
+  align-items: center;
+  justify-content: flex-end;
+
+  color: #888;
+}
+
+button {
+  background: transparent;
+
+  border: 1px solid rgba(0,255,255,0.5);
+  border-radius: 999px;
+
+  color: cyan;
+
+  padding: 8px 18px;
+
+  font-size: 20px;
+
+  cursor: pointer;
+}
+
+button:hover {
+  background: rgba(0,255,255,0.12);
+
+  box-shadow: 0 0 20px rgba(0,255,255,0.25);
+}
+
+/* STAR WARS SUBTITLE STRIP */
+
+.crawl-wrapper {
+  position: absolute;
+
+  left: 80px;
+  right: 260px;
+  bottom: 30px;
+
+  height: 70px;
+
+  overflow: hidden;
+
+  pointer-events: none;
+
+  z-index: 4;
+}
+
+.crawl {
+  position: absolute;
+
+  left: 20%;
+  width: 60%;
+
+  top: 100%;
+
+  color: rgba(255,255,255,0.68);
+
+  font-size: 18px;
+  line-height: 1.5;
+
+  text-align: center;
+
+  white-space: pre-line;
+
+  opacity: 0;
+
+  animation: miniCrawl 22s linear 0.4s forwards;
+}
+
+@keyframes miniCrawl {
+  from {
+    top: 100%;
+    opacity: 0;
+
+    transform:
+      perspective(360px)
+      rotateX(24deg)
+      scale(1);
+  }
+
+  8% {
+    opacity: 1;
+  }
+
+  82% {
+    opacity: 1;
+  }
+
+  to {
+    top: -520%;
+    opacity: 0;
+
+    transform:
+      perspective(360px)
+      rotateX(24deg)
+      scale(0.72);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+
+    transform: translateY(30px);
+
+    filter: blur(10px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+
+    filter: blur(0);
+  }
+}
+
+@keyframes glowIn {
+  from {
+    opacity: 0;
+
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: scale(1);
+  }
+}
+
+@keyframes bulletReveal {
+  from {
+    opacity: 0;
+
+    transform: translateX(-20px);
+
+    filter: blur(6px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateX(0);
+
+    filter: blur(0);
+  }
+}
+
+@keyframes driftOne {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+
+  to {
+    transform: translate(-40px, 60px) scale(1.15);
+  }
+}
+
+@keyframes driftTwo {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+
+  to {
+    transform: translate(50px, -40px) scale(1.12);
+  }
 }
