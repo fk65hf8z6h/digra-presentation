@@ -3,15 +3,18 @@ body {
   background: black;
   color: white;
   font-family: Arial, sans-serif;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .presentation {
-  width: 100%;
+  width: 100vw;
+  height: 100vh;
+  background: black;
 }
 
 .slide {
   position: relative;
+  width: 100vw;
   height: 100vh;
   padding: 60px;
   box-sizing: border-box;
@@ -19,14 +22,15 @@ body {
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
   background:
-    radial-gradient(circle at top right, rgba(0,255,255,0.15), transparent 30%),
-    radial-gradient(circle at bottom left, rgba(255,0,255,0.12), transparent 30%),
+    radial-gradient(circle at top right, rgba(0,255,255,0.18), transparent 32%),
+    radial-gradient(circle at bottom left, rgba(255,0,255,0.14), transparent 32%),
     #000;
 }
 
 .topline {
+  position: relative;
+  z-index: 5;
   display: flex;
   justify-content: space-between;
   font-size: 14px;
@@ -36,6 +40,8 @@ body {
 }
 
 .content {
+  position: relative;
+  z-index: 5;
   max-width: 900px;
 }
 
@@ -50,7 +56,7 @@ h2 {
   font-weight: 300;
   color: #bbb;
   margin-bottom: 30px;
-  animation: fadeUp 1.5s ease forwards;
+  animation: fadeUp 1.4s ease forwards;
 }
 
 .accent {
@@ -61,7 +67,7 @@ h2 {
   color: cyan;
   margin-top: 20px;
   box-shadow: 0 0 30px rgba(0,255,255,0.3);
-  animation: glowIn 2s ease forwards;
+  animation: glowIn 1.8s ease forwards;
 }
 
 p {
@@ -69,7 +75,7 @@ p {
   line-height: 1.5;
   color: #ddd;
   max-width: 800px;
-  animation: fadeUp 1.5s ease forwards;
+  animation: fadeUp 1.4s ease forwards;
 }
 
 ul {
@@ -94,22 +100,50 @@ li:nth-child(4) { animation-delay: 0.8s; }
   position: absolute;
   border-radius: 50%;
   filter: blur(100px);
+  pointer-events: none;
 }
 
 .glow1 {
-  width: 400px;
-  height: 400px;
-  background: rgba(0,255,255,0.15);
+  width: 420px;
+  height: 420px;
+  background: rgba(0,255,255,0.16);
   top: -100px;
   right: -100px;
+  animation: driftOne 8s ease-in-out infinite alternate;
 }
 
 .glow2 {
-  width: 400px;
-  height: 400px;
-  background: rgba(255,0,255,0.1);
+  width: 420px;
+  height: 420px;
+  background: rgba(255,0,255,0.12);
   bottom: -120px;
   left: -120px;
+  animation: driftTwo 9s ease-in-out infinite alternate;
+}
+
+.footer {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  justify-content: flex-end;
+  color: #888;
+}
+
+button {
+  background: transparent;
+  border: 1px solid rgba(0,255,255,0.5);
+  color: cyan;
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: rgba(0,255,255,0.12);
+  box-shadow: 0 0 20px rgba(0,255,255,0.25);
 }
 
 @keyframes fadeUp {
@@ -140,9 +174,29 @@ li:nth-child(4) { animation-delay: 0.8s; }
   from {
     opacity: 0;
     transform: translateX(-20px);
+    filter: blur(6px);
   }
   to {
     opacity: 1;
     transform: translateX(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes driftOne {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(-40px, 60px) scale(1.15);
+  }
+}
+
+@keyframes driftTwo {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(50px, -40px) scale(1.12);
   }
 }
