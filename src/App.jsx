@@ -71,6 +71,14 @@ Vilnius, Lithuania
 
           {slide.accent && <div className="accent">{slide.accent}</div>}
 
+          {slide.crawl && (
+  <div className="crawl-wrapper">
+    <div className="crawl">
+      {slide.crawl}
+    </div>
+  </div>
+)}
+
           {slide.text && <p>{slide.text}</p>}
 
           {slide.bullets && (
