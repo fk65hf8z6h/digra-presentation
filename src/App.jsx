@@ -333,41 +333,41 @@ export default function App() {
 
         .content {
           max-width: 1060px;
-          margin-top: 62px;
+          margin-top: 72px;
           position: relative;
           z-index: 2;
         }
 
         h1 {
-          font-size: clamp(44px, 6.4vw, 88px);
-          line-height: 0.95;
-          margin: 0 0 20px;
+          font-size: clamp(38px, 5.1vw, 72px);
+          line-height: 1.02;
+          margin: 0 0 36px;
           animation: fadeUp 0.9s ease forwards;
         }
 
         h2 {
-          font-size: clamp(28px, 3vw, 46px);
+          font-size: clamp(23px, 2.35vw, 36px);
           font-weight: 300;
           color: #bbb;
-          margin: 0 0 30px;
+          margin: 0 0 42px;
           animation: fadeUp 1.1s ease forwards;
         }
 
         .accent {
           display: inline-block;
-          padding: 14px 28px;
+          padding: 13px 26px;
           border: 1px solid cyan;
           border-radius: 999px;
           color: cyan;
           margin-top: 20px;
           box-shadow: 0 0 30px rgba(0,255,255,0.3);
           animation: glowIn 1.2s ease forwards;
-          font-size: clamp(20px, 2.2vw, 30px);
+          font-size: clamp(18px, 1.8vw, 26px);
         }
 
         .intro-line {
           margin-top: 28px;
-          font-size: clamp(18px, 2vw, 28px);
+          font-size: clamp(17px, 1.65vw, 24px);
           line-height: 1.5;
           color: rgba(255,255,255,0.7);
           letter-spacing: 0.04em;
@@ -382,9 +382,9 @@ export default function App() {
         }
 
         li {
-          font-size: clamp(23px, 2.55vw, 36px);
-          line-height: 1.25;
-          margin-bottom: 20px;
+          font-size: clamp(19px, 2.05vw, 29px);
+          line-height: 1.34;
+          margin-bottom: 18px;
           color: #ddd;
           opacity: 0;
           animation: bulletReveal 0.8s ease forwards;
@@ -428,8 +428,8 @@ export default function App() {
 
         .mini-card p {
           color: rgba(255,255,255,0.82);
-          font-size: clamp(22px, 2vw, 29px);
-          line-height: 1.35;
+          font-size: clamp(19px, 1.65vw, 24px);
+          line-height: 1.4;
           margin: 0;
         }
 
@@ -460,47 +460,47 @@ export default function App() {
         .question p {
           margin: 0;
           color: #ddd;
-          font-size: clamp(23px, 2.25vw, 34px);
-          line-height: 1.25;
+          font-size: clamp(19px, 1.85vw, 28px);
+          line-height: 1.32;
         }
 
         .slide-map .content {
-          margin-top: 30px;
+          margin-top: 42px;
           max-width: none;
         }
 
         .map-title {
-          font-size: clamp(34px, 4vw, 54px);
-          margin-bottom: 8px;
+          font-size: clamp(32px, 3.5vw, 48px);
+          margin-bottom: 10px;
         }
 
         .map-subtitle {
-          font-size: clamp(22px, 2.3vw, 32px);
-          margin-bottom: 30px;
+          font-size: clamp(20px, 2vw, 28px);
+          margin-bottom: 46px;
         }
 
         .map-wrap {
-          width: min(1120px, 88vw);
-          height: 500px;
+          width: min(980px, 80vw);
+          height: 405px;
           position: relative;
-          margin-top: 8px;
-          transform: translateX(-10px);
+          margin-top: 0;
+          transform: translateX(-6px);
         }
 
         .map-cards {
           display: grid;
           grid-template-columns: repeat(4, minmax(0, 1fr));
-          gap: 54px;
+          gap: 38px;
           position: relative;
           z-index: 2;
         }
 
         .map-card {
           position: relative;
-          min-height: 190px;
-          padding: 24px 18px;
+          min-height: 160px;
+          padding: 20px 14px;
           border: 1.5px solid currentColor;
-          border-radius: 20px;
+          border-radius: 18px;
           background: rgba(0,0,0,0.68);
           box-shadow: 0 0 28px rgba(0,255,255,0.12);
           text-align: center;
@@ -509,7 +509,7 @@ export default function App() {
         .map-card h3 {
           white-space: pre-line;
           margin: 0;
-          font-size: 24px;
+          font-size: 20px;
           line-height: 1.08;
           letter-spacing: 0.04em;
         }
@@ -524,9 +524,9 @@ export default function App() {
 
         .map-text {
           display: grid;
-          gap: 5px;
+          gap: 4px;
           color: rgba(255,255,255,0.84);
-          font-size: 18px;
+          font-size: 15px;
           line-height: 1.14;
         }
 
@@ -539,9 +539,9 @@ export default function App() {
           opacity: 0;
           animation: fadeUp .4s ease forwards;
           position: absolute;
-          top: 82px;
-          right: -43px;
-          width: 32px;
+          top: 70px;
+          right: -31px;
+          width: 26px;
           height: 2px;
           background: currentColor;
           box-shadow: 0 0 12px currentColor;
@@ -570,7 +570,7 @@ export default function App() {
           position: absolute;
           left: 8.5%;
           right: 8.5%;
-          top: 275px;
+          top: 224px;
           height: 2px;
           background: linear-gradient(90deg, cyan, #20b8ff, #c047ff, #ff2bd6);
           box-shadow: 0 0 16px rgba(0,255,255,0.25);
@@ -582,9 +582,9 @@ export default function App() {
           animation-delay: 2.9s;
           position: absolute;
           left: 50%;
-          top: 275px;
+          top: 224px;
           width: 2px;
-          height: 64px;
+          height: 48px;
           background: #dbefff;
           box-shadow: 0 0 12px rgba(0,255,255,0.35);
         }
@@ -607,10 +607,10 @@ export default function App() {
           animation-delay: 3.5s;
           position: absolute;
           left: 50%;
-          top: 350px;
+          top: 292px;
           transform: translateX(-50%);
-          width: min(470px, 66vw);
-          padding: 24px 30px 26px;
+          width: min(420px, 58vw);
+          padding: 20px 26px 22px;
           border: 1.5px solid cyan;
           border-radius: 18px;
           background: rgba(0,0,0,0.74);
@@ -619,12 +619,18 @@ export default function App() {
         }
 
         .it-guy {
-          font-size: clamp(40px, 4.2vw, 58px);
+          font-size: clamp(34px, 3.4vw, 48px);
           font-weight: 700;
           line-height: 1;
         }
 
         .it { color: white; }
+
+        .as-subject {
+          margin-top: 22px;
+          color: rgba(255,255,255,0.88);
+          font-size: clamp(18px, 1.45vw, 23px);
+        }
 
         .guy {
           color: #ff3aa9;
@@ -632,12 +638,6 @@ export default function App() {
           animation: glowIn 1s ease forwards, pulseGuy 2.5s ease-in-out 4.2s infinite;
           animation-delay: 3.8s, 4.2s;
           text-shadow: 0 0 18px rgba(255,43,214,0.55);
-        }
-
-        .as-subject {
-          margin-top: 14px;
-          color: rgba(255,255,255,0.88);
-          font-size: clamp(20px, 1.7vw, 27px);
         }
 
         .footer {
