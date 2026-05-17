@@ -1,5 +1,8 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 
+const linkedInQr =
+  "data:image/png;base64,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";
+
 const slides = [
   {
     type: "title",
@@ -267,6 +270,10 @@ export default function App() {
             )}
           </main>
         </div>
+
+        {slide.type === "references" && (
+          <img className="references-qr" src={linkedInQr} alt="LinkedIn QR code" />
+        )}
 
         <footer className="footer">
           <button type="button" onClick={prev} disabled={current === 0} aria-label="Previous slide">
@@ -661,12 +668,26 @@ export default function App() {
 
         .slide-references ul {
           max-width: 1320px;
+          padding-right: 420px;
         }
 
         .slide-references li {
           font-size: clamp(15px, 1.2vw, 19px);
           line-height: 1.34;
           margin-bottom: 10px;
+        }
+
+        .references-qr {
+          position: fixed;
+          right: 96px;
+          top: 285px;
+          width: 260px;
+          height: auto;
+          z-index: 30;
+          border: none;
+          border-radius: 0;
+          box-shadow: none;
+          image-rendering: auto;
         }
 
         .footer {
