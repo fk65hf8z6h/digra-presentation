@@ -338,12 +338,12 @@ export default function App() {
           z-index: 2;
         }
 
-        h1 {
-          font-size: clamp(38px, 5.1vw, 72px);
-          line-height: 1.02;
-          margin: 0 0 36px;
-          animation: fadeUp 0.9s ease forwards;
-        }
+       h1 {
+  font-size: clamp(36px, 4.7vw, 68px);
+  line-height: 1.02;
+  margin: 0 0 36px;
+  animation: fadeUp 0.9s ease forwards;
+}
 
         h2 {
           font-size: clamp(23px, 2.35vw, 36px);
@@ -469,23 +469,24 @@ export default function App() {
           max-width: none;
         }
 
-        .map-title {
-          font-size: clamp(32px, 3.5vw, 48px);
-          margin-bottom: 10px;
-        }
+.map-title {
+  font-size: clamp(36px, 4.5vw, 66px);
+  line-height: 1.02;
+  margin-bottom: 10px;
+}
 
-        .map-subtitle {
-          font-size: clamp(20px, 2vw, 28px);
-          margin-bottom: 46px;
-        }
+       .map-subtitle {
+  font-size: clamp(20px, 1.95vw, 28px);
+  margin-bottom: 34px;
+}
 
         .map-wrap {
-          width: min(980px, 80vw);
-          height: 405px;
-          position: relative;
-          margin-top: 0;
-          transform: translateX(-6px);
-        }
+  width: min(980px, 80vw);
+  height: 360px;
+  position: relative;
+  margin-top: 0;
+  transform: translateX(-6px);
+}
 
         .map-cards {
           display: grid;
@@ -563,31 +564,31 @@ export default function App() {
           transform: rotate(45deg);
         }
 
-        .merge-line {
-          opacity: 0;
-          animation: fadeUp .8s ease forwards;
-          animation-delay: 2.9s;
-          position: absolute;
-          left: 8.5%;
-          right: 8.5%;
-          top: 224px;
-          height: 2px;
-          background: linear-gradient(90deg, cyan, #20b8ff, #c047ff, #ff2bd6);
-          box-shadow: 0 0 16px rgba(0,255,255,0.25);
-        }
+       .merge-line {
+  opacity: 0;
+  animation: fadeUp .8s ease forwards;
+  animation-delay: 2.9s;
+  position: absolute;
+  left: 8.5%;
+  right: 8.5%;
+  top: 204px;
+  height: 2px;
+  background: linear-gradient(90deg, cyan, #20b8ff, #c047ff, #ff2bd6);
+  box-shadow: 0 0 16px rgba(0,255,255,0.25);
+}
 
-        .merge-arrow {
-          opacity: 0;
-          animation: fadeUp .8s ease forwards;
-          animation-delay: 2.9s;
-          position: absolute;
-          left: 50%;
-          top: 224px;
-          width: 2px;
-          height: 48px;
-          background: #dbefff;
-          box-shadow: 0 0 12px rgba(0,255,255,0.35);
-        }
+.merge-arrow {
+  opacity: 0;
+  animation: fadeUp .8s ease forwards;
+  animation-delay: 2.9s;
+  position: absolute;
+  left: 50%;
+  top: 204px;
+  width: 2px;
+  height: 38px;
+  background: #dbefff;
+  box-shadow: 0 0 12px rgba(0,255,255,0.35);
+}
 
         .merge-arrow::after {
           content: "";
@@ -601,36 +602,35 @@ export default function App() {
           transform: rotate(45deg);
         }
 
-        .map-result {
-          opacity: 0;
-          animation: glowIn 1s ease forwards;
-          animation-delay: 3.5s;
-          position: absolute;
-          left: 50%;
-          top: 292px;
-          transform: translateX(-50%);
-          width: min(420px, 58vw);
-          padding: 20px 26px 22px;
-          border: 1.5px solid cyan;
-          border-radius: 18px;
-          background: rgba(0,0,0,0.74);
-          box-shadow: 0 0 34px rgba(0,255,255,0.18);
-          text-align: center;
-        }
-
-        .it-guy {
-          font-size: clamp(34px, 3.4vw, 48px);
-          font-weight: 700;
-          line-height: 1;
-        }
+  .map-result {
+  opacity: 0;
+  animation: glowIn 1s ease forwards;
+  animation-delay: 3.5s;
+  position: absolute;
+  left: 50%;
+  top: 248px;
+  transform: translateX(-50%);
+  width: min(400px, 56vw);
+  padding: 18px 24px 20px;
+  border: 1.5px solid cyan;
+  border-radius: 18px;
+  background: rgba(0,0,0,0.74);
+  box-shadow: 0 0 34px rgba(0,255,255,0.18);
+  text-align: center;
+}
+    .it-guy {
+  font-size: clamp(32px, 3.1vw, 44px);
+  font-weight: 700;
+  line-height: 1;
+}
 
         .it { color: white; }
 
-        .as-subject {
-          margin-top: 22px;
-          color: rgba(255,255,255,0.88);
-          font-size: clamp(18px, 1.45vw, 23px);
-        }
+      .as-subject {
+  margin-top: 18px;
+  color: rgba(255,255,255,0.88);
+  font-size: clamp(16px, 1.25vw, 20px);
+}
 
         .guy {
           color: #ff3aa9;
