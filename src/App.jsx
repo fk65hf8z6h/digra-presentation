@@ -92,6 +92,20 @@ const slides = [
       "ontological invisibility emerges as a structural effect",
     ],
   },
+  {
+    type: "references",
+    eyebrow: "References",
+    title: "References",
+    bullets: [
+      "Foucault, Michel. “The Subject and Power.” 1982.",
+      "Butler, Judith. Bodies That Matter. 1993.",
+      "Deleuze, G., Guattari, F. A Thousand Plateaus: Capitalism and Schizophrenia. 1987.",
+      "Barad, Karen. Meeting the Universe Halfway. 2007.",
+      "Orlikowski, Wanda J. “Sociomaterial Practices: Exploring Technology at Work.” 2007.",
+      "Adam, Alison; Howcroft, Debra; Richardson, Helen. “A Decade of Neglect: Reflecting on Gender and IS.” 2004.",
+      "Erina, Polina. (Re)production of Gender Inequality through Discriminatory Practices against Women: A Case Study of Corporate IT Consulting. MA thesis, European Humanities University, 2024.",
+    ],
+  },
 ];
 
 function TheoryMap() {
@@ -639,6 +653,20 @@ export default function App() {
           animation: glowIn 1s ease forwards, pulseGuy 2.5s ease-in-out 4.2s infinite;
           animation-delay: 3.8s, 4.2s;
           text-shadow: 0 0 18px rgba(255,43,214,0.55);
+        }
+
+        .slide-references .content {
+          max-width: 1320px;
+        }
+
+        .slide-references ul {
+          max-width: 1320px;
+        }
+
+        .slide-references li {
+          font-size: clamp(15px, 1.2vw, 19px);
+          line-height: 1.34;
+          margin-bottom: 10px;
         }
 
         .footer {
