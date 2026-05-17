@@ -234,7 +234,11 @@ export default function App() {
               <>
                 <h1>{slide.title}</h1>
                 {slide.subtitle && <h2>{slide.subtitle}</h2>}
-                {slide.accent && <div className="accent">{slide.accent}</div>}
+                {slide.accent && (
+                  <div className={`accent ${slide.type === "title" ? "accent-electric" : ""}`}>
+                    <span>{slide.accent}</span>
+                  </div>
+                )}
                 {slide.intro && <div className="intro-line">{slide.intro}</div>}
 
                 {slide.cards && (
@@ -376,6 +380,7 @@ export default function App() {
 
         .accent {
           display: inline-block;
+          position: relative;
           padding: 13px 26px;
           border: 1px solid cyan;
           border-radius: 999px;
@@ -384,6 +389,56 @@ export default function App() {
           box-shadow: 0 0 30px rgba(0,255,255,0.3);
           animation: glowIn 1.2s ease forwards;
           font-size: clamp(18px, 1.8vw, 26px);
+          overflow: hidden;
+        }
+
+        .accent span {
+          position: relative;
+          z-index: 2;
+        }
+
+        .accent-electric {
+          text-shadow:
+            0 0 6px rgba(0,255,255,0.65),
+            0 0 14px rgba(0,255,255,0.4),
+            0 0 24px rgba(0,255,255,0.18);
+          animation:
+            glowIn 1.2s ease forwards,
+            electricFlicker 6.5s infinite;
+        }
+
+        .accent-electric::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          border-radius: 999px;
+          pointer-events: none;
+          background:
+            linear-gradient(
+              110deg,
+              transparent 0%,
+              transparent 38%,
+              rgba(255,255,255,0.9) 47%,
+              rgba(0,255,255,0.85) 50%,
+              rgba(255,255,255,0.9) 53%,
+              transparent 62%,
+              transparent 100%
+            );
+          opacity: 0;
+          transform: translateX(-140%);
+          filter: blur(0.6px);
+          animation: electricSpark 6.5s infinite;
+        }
+
+        .accent-electric::after {
+          content: "";
+          position: absolute;
+          inset: -2px;
+          border-radius: 999px;
+          border: 1px solid rgba(255,255,255,0.22);
+          opacity: 0;
+          pointer-events: none;
+          animation: electricPulse 6.5s infinite;
         }
 
         .intro-line {
@@ -807,6 +862,95 @@ export default function App() {
               0 0 30px rgba(255,43,214,.4);
           }
           100% { text-shadow: 0 0 10px rgba(255,43,214,.3); }
+        }
+
+        @keyframes electricFlicker {
+          0%, 80%, 100% {
+            text-shadow:
+              0 0 6px rgba(0,255,255,0.65),
+              0 0 14px rgba(0,255,255,0.4),
+              0 0 24px rgba(0,255,255,0.18);
+            opacity: 1;
+          }
+
+          82% {
+            text-shadow:
+              0 0 2px rgba(255,255,255,0.95),
+              0 0 20px rgba(0,255,255,0.95),
+              0 0 34px rgba(0,255,255,0.55);
+          }
+
+          83% {
+            opacity: 0.9;
+          }
+
+          84% {
+            opacity: 1;
+          }
+
+          86% {
+            text-shadow:
+              0 0 3px rgba(255,255,255,0.9),
+              0 0 22px rgba(0,255,255,0.9),
+              0 0 36px rgba(0,255,255,0.6);
+          }
+
+          87% {
+            opacity: 0.96;
+          }
+        }
+
+        @keyframes electricSpark {
+          0%, 79%, 100% {
+            opacity: 0;
+            transform: translateX(-140%);
+          }
+
+          81% {
+            opacity: 0.9;
+            transform: translateX(-10%);
+          }
+
+          83% {
+            opacity: 0;
+            transform: translateX(140%);
+          }
+
+          86% {
+            opacity: 0.8;
+            transform: translateX(10%);
+          }
+
+          88% {
+            opacity: 0;
+            transform: translateX(150%);
+          }
+        }
+
+        @keyframes electricPulse {
+          0%, 80%, 100% {
+            opacity: 0;
+            box-shadow: 0 0 0 rgba(0,255,255,0);
+          }
+
+          82% {
+            opacity: 1;
+            box-shadow:
+              0 0 10px rgba(255,255,255,0.3),
+              0 0 24px rgba(0,255,255,0.5);
+          }
+
+          86% {
+            opacity: 0.75;
+            box-shadow:
+              0 0 8px rgba(255,255,255,0.22),
+              0 0 18px rgba(0,255,255,0.36);
+          }
+
+          89% {
+            opacity: 0;
+            box-shadow: 0 0 0 rgba(0,255,255,0);
+          }
         }
 
         .slide-map .map-wrap {
